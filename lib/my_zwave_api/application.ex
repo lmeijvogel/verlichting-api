@@ -11,8 +11,10 @@ defmodule MyZwaveApi.Application do
       MyZwaveApiWeb.Telemetry,
       # Start the PubSub system
       {Phoenix.PubSub, name: MyZwaveApi.PubSub},
+      {Redix, host: System.get_env("REDIS_HOST"), name: :redix},
       # Start the Endpoint (http/https)
-      MyZwaveApiWeb.Endpoint
+      MyZwaveApiWeb.Endpoint,
+      {MyZwaveApi.Backend, System.fetch_env!("DRIVER_HOST")}
       # Start a worker by calling: MyZwaveApi.Worker.start_link(arg)
       # {MyZwaveApi.Worker, arg}
     ]

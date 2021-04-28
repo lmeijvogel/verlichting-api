@@ -47,6 +47,26 @@ defmodule MyZwaveApiWeb.Router do
     get "/", VacationModeController, :index
     post "/", VacationModeController, :set
   end
+
+  scope "/events", MyZwaveApiWeb do
+    pipe_through :api
+
+    get "/", EventsController, :index
+  end
+
+  scope "/live", MyZwaveApiWeb do
+    pipe_through :api
+
+    get "/", LiveController, :get
+    post "/:new_state", LiveController, :set
+  end
+
+  scope "/debug", MyZwaveApiWeb do
+    pipe_through :api
+
+    post "/heal_network", DebugController, :heal_network
+  end
+
   # Other scopes may use custom stacks.
   # scope "/api", MyZwaveApiWeb do
   #   pipe_through :api
