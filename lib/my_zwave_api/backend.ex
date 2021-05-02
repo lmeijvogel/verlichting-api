@@ -14,6 +14,10 @@ defmodule MyZwaveApi.Backend do
     GenServer.call(@me, {:post, path, body})
   end
 
+  def post(path) do
+    post(path, "")
+  end
+
   def live? do
     GenServer.call(@me, {:live?})
   end
