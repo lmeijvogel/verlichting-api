@@ -15,10 +15,6 @@ config :my_zwave_api, MyZwaveApiWeb.Endpoint,
   pubsub_server: MyZwaveApi.PubSub,
   live_view: [signing_salt: "vkQLKdal"]
 
-config :my_zwave_api,
-  redis_host: System.fetch_env!("REDIS_HOST"),
-  driver_host: System.fetch_env!("DRIVER_HOST")
-
 # Configures Elixir's Logger
 config :logger, :console,
   format: "$time $metadata[$level] $message\n",
