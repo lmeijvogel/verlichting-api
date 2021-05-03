@@ -16,6 +16,7 @@ COPY . .
 
 RUN mix local.hex --force \
  && mix local.rebar --force \
- && mix archive.install hex phx_new 1.5.8 --force
+ && mix archive.install hex phx_new 1.5.8 --force \
+ && mix deps.get
 
 CMD mix phx.server
